@@ -1,20 +1,8 @@
 var app = require('./config/server');
 
-app.get('/tecnologia', function(req, res) {
-    res.render("tecnologia");
-});
-
-app.get('/', function(req, res) {
-    res.render("index");
-});
-
-app.get('/form_noticias', function(req, res){
-    res.render("form_add_noticia");
-});
-
-app.get('/noticias', function(req, res){
-    res.render("noticias");
-});
+var rotaNoticias = require('./routes/noticias')(app);
+var rotaIndex = require('./routes/home')(app);
+var rotaFormNoticias = require('./routes/formulario_inclusao_noticia')(app);
 
 app.listen(3000, function(){
 
